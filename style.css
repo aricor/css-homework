@@ -1,38 +1,107 @@
-@media only screen and (width: 1000px) {
+@font-face { font-family: myCustomFont; src: url('Novae-regular.ttf'); } 
+@font-face { font-family: myCustomFont; font-weight: bold; src: url('Novae-regular.ttf');}
+
+@media only screen and (max-width: 1000px) {
     #sidebar {
-        width: 200px;
+        display: flex;
+        max-width: 1000px;
+        min-width:400px;
         height: 100%;
         border: 1px solid blue;
+        justify-content: center;
+        text-align: center;
     }
     #content {
         width: 800px;
         right: 0px;
     }
+    #sidebar ul {
+        list-style: none;
+        
+    }
+    #sidebar ul li {
+        display: inline-block;
+        
+    }
+    img {
+        margin: auto;
+    display: block;
+    }
+
 } 
 
 @media only screen and (min-width: 1001px) {
-    .flex-container {
-        display: flex;
-    }
-
-    .flex-container > #sidebar {
-        margin: 10px;
-        padding: 20px;
-        font-size: 30px;
+    #sidebar {
+        width: 200px;
+        float: left;
         border: 1px solid grey;
+        justify-content: center;
+        flex-direction: column;
+        height: 700px;
+        vertical-align: top;
+        position: fixed;
     }
-      
-    .flex-container > article {
-        margin: 10px;
-        padding: 20px;
-        font-size: 30px;
-        flex: 7
+    #content {
+        width: calc(100% - 220px);
+        text-align: center;
+        justify-content: center;
+        float: right;
+        display: block;
+        box-sizing: content-box;
+        padding: 0px;
+    }
+article {
+    margin: 0px auto;
+    display: block;
+    max-width: 800px;
+    text-align: left;
     }
 
-    .flex-container > .space {
-        margin: 10px;
-        padding: 20px;
-        font-size: 30px;
-        flex: 1
+    .floatright {
+        float :right;
     }
+    .floatleft {
+        float :left;
+        -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+        transition: width 2s, height 2s, transform 2s;
+    }
+
+    article {
+        font-family: myCustomFont; 
+    }
+    
+    .floatright {
+        border-radius: 50%;
+  height: 250px;
+  margin: 50px auto;
+  width: 250px;
+
+    }
+    .floatright:hover  {
+        transform: scale(2);
+        }
+    .floatleft:hover {
+        width: 300px;
+        height: 300px;
+        -webkit-transform: rotate(180deg); /* Safari */
+        transform:perspective(400px) rotate(45deg);
+    }
+    :target {
+        animation: highlight 1s ease;  
+        transform: translateX(20px);     
+      }
+
+      @keyframes highlight {
+        0% { border-left-color: red; }
+        100% { border-left-color: white; }
+      }
+
+      section > h2 {
+        border-left: 40px solid white;
+        padding: 10px;
+        transition: all 0.5s ease;     
+        padding-right: 50px;
+        margin-left: -20px;    
+      }
+      
 } 
